@@ -20,7 +20,8 @@ This project is now ready for deployment on Vercel. Follow these steps to deploy
 
 The project is already configured with the correct settings in `vercel.json`:
 
-- **Build Command**: `cd frontend && npm run build`
+- **Install Command**: `npm run install:all`
+- **Build Command**: `npm run build:frontend`
 - **Output Directory**: `frontend/dist`
 - **Functions Directory**: `api/` (automatically detected)
 
@@ -79,6 +80,16 @@ If you encounter build issues:
 1. Check that all dependencies are installed
 2. Ensure TypeScript compilation is successful
 3. Verify that the frontend build completes without errors
+
+### Common Deployment Errors
+
+**Error: "cd: frontend: No such file or directory"**
+- This was fixed by updating the build command to use `npm run build:frontend` instead of `cd frontend && npm run build`
+- The current configuration uses the correct approach for Vercel's build environment
+
+**Error: "Command exited with 1"**
+- Make sure the `installCommand` is set to `npm run install:all` to install all dependencies
+- Verify that all package.json files have the correct scripts defined
 
 ### API Issues
 
