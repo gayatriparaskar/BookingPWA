@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: luxe-salon-app
+    env: node
+    plan: free
+    buildCommand: npm run build:render
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PING_MESSAGE
+        value: Hello from Render
+    healthCheckPath: /api/ping
